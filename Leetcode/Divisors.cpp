@@ -2,8 +2,8 @@
 #include<cmath>
 using namespace std;
 
+// 1952_3Divisors
 bool isThree(int n);
-
 //Tc = O(n)
 /*bool isThree(int n){
     int count=0;
@@ -31,6 +31,8 @@ bool isThree(int n){
     }
     return true;
 }
+
+
 
 int main(){
     int n;
