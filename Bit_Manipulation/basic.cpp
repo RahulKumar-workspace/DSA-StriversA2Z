@@ -42,5 +42,7 @@ int main(){
 
     string x = "111000";
     cout<<x<<" = "<<convert2decimal(x)<<endl;
+
+    int a;
     return 0;
 }
