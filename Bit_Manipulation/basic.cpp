@@ -43,6 +43,6 @@ int main(){
     string x = "111000";
     cout<<x<<" = "<<convert2decimal(x)<<endl;
 
-    int a;
+    int a = 1;
     return 0;
 }
