@@ -44,5 +44,6 @@ int main(){
     cout<<x<<" = "<<convert2decimal(x)<<endl;
 
     int a = 1;
+
     return 0;
 }
