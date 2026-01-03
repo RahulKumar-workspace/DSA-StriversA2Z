@@ -68,8 +68,14 @@ Now do & operation. */
 //     return 0;
 // }
 
+/* Q5: Toggle the i'th bit.
+Way -> put '1' undereath the i'th bit then do XOR operaion.*/
+int main(){
+    int N = 13;
+    int i = 1;
 
-// int main(){
+    N = (N ^ (1<<i));
 
-//     return 0;
-// }
+    cout<<N<<endl;
+    return 0;
+}
