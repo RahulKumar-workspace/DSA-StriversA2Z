@@ -70,12 +70,22 @@ Now do & operation. */
 
 /* Q5: Toggle the i'th bit.
 Way -> put '1' undereath the i'th bit then do XOR operaion.*/
+// int main(){
+//     int N = 13;
+//     int i = 1;
+
+//     N = (N ^ (1<<i));
+
+//     cout<<N<<endl;
+//     return 0;
+// }
+
+/* Q6: Remove the last set bit.*/
 int main(){
-    int N = 13;
-    int i = 1;
+    int N = 40;
 
-    N = (N ^ (1<<i));
-
+    N = (N&(N-1));
+    
     cout<<N<<endl;
     return 0;
 }
