@@ -81,11 +81,27 @@ Way -> put '1' undereath the i'th bit then do XOR operaion.*/
 // }
 
 /* Q6: Remove the last set bit.*/
+// int main(){
+//     int N = 40;
+
+//     N = (N&(N-1));
+    
+//     cout<<N<<endl;
+//     return 0;
+// }
+
+/* Q7: Check if a no is power of 2 or not.
+Note: A no is power of 2 if it only has a single set bit.
+eg: 16->10000, 2->1000, etc*/
 int main(){
-    int N = 40;
+    int N = 16;
 
     N = (N&(N-1));
-    
-    cout<<N<<endl;
+
+    if(N == 0){
+        cout<<"N is power of 2"<<endl;
+    }else{
+        cout<<"N is not a power of 2"<<endl;
+    }
     return 0;
 }
