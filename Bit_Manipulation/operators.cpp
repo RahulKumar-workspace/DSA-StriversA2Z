@@ -93,15 +93,43 @@ Way -> put '1' undereath the i'th bit then do XOR operaion.*/
 /* Q7: Check if a no is power of 2 or not.
 Note: A no is power of 2 if it only has a single set bit.
 eg: 16->10000, 2->1000, etc*/
+// int main(){
+//     int N = 16;
+
+//     N = (N&(N-1));
+
+//     if(N == 0){
+//         cout<<"N is power of 2"<<endl;
+//     }else{
+//         cout<<"N is not a power of 2"<<endl;
+//     }
+//     return 0;
+// }
+
+/* Q8: Count the no of set bits
+(n%2==1) == (n&1) -> both check if the no is odd or not.
+n/2 = (n>>1)
+OR n=(n&(n-1))
+check out notes to understand better!*/
 int main(){
-    int N = 16;
-
-    N = (N&(N-1));
-
-    if(N == 0){
-        cout<<"N is power of 2"<<endl;
-    }else{
-        cout<<"N is not a power of 2"<<endl;
+    int N = 13;
+    int no=N;
+    int count = 0;
+//Normal zindgi:
+    // while(N>0){
+    //     if(N%2==1) count+=1;
+    //     N=N/2; 
+    // }
+//Mentos zindgi:
+    // while(N>0){
+    //     if(N&1) count++;
+    //     N = (N >> 1);
+    // }
+//Mentos+ Zindgi:
+    while(N>0){
+        N = (N & (N-1));
+        count++;
     }
+    cout<<"No of set bits are: "<<count<<endl;
     return 0;
 }
