@@ -140,18 +140,24 @@ now yo'll nocice that only the bits which needs to flip are turning into '1'
 so not count the no of bits from the result = count*/
 int main(){
     int start = 10;
-    int end = 7;
-    int ans = start ^ end;
+    int goal = 7;
+    int ans = start ^ goal;
     int count = 0;
     // while(ans != 0){
     //     ans = ans & (ans-1);
     //     count++;
     // }
 //or
-    for(int i=0; i<=31; i++){
-        if(ans & (1<<i)){
-            count++;
-        }
+    // for(int i=0; i<=31; i++){
+    //     if(ans & (1<<i)){
+    //         count++;
+    //     }
+    // }
+//or
+    while(start > 0 || goal > 0){
+        if((start & 1) != (goal & 1)) count++;
+        start >>= 1;
+        goal >>= 1;
     }
     cout <<count<<endl;
     return 0;
