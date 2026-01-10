@@ -111,25 +111,43 @@ eg: 16->10000, 2->1000, etc*/
 n/2 = (n>>1)
 OR n=(n&(n-1))
 check out notes to understand better!*/
+// int main(){
+//     int N = 13;
+//     int no=N;
+//     int count = 0;
+// //Normal zindgi:
+//     // while(N>0){
+//     //     if(N%2==1) count+=1;
+//     //     N=N/2; 
+//     // }
+// //Mentos zindgi:
+//     // while(N>0){
+//     //     if(N&1) count++;
+//     //     N = (N >> 1);
+//     // }
+// //Mentos+ Zindgi:
+//     while(N>0){
+//         N = (N & (N-1));
+//         count++;
+//     }
+//     cout<<"No of set bits are: "<<count<<endl;
+//     return 0;
+// }
+
+/* Q9. Count Minimum no of bits to convert a no to other no (jan10)
+way-> so only XOR operator works on opp bits, so do xor on the initial no and the intended no.
+now yo'll nocice that only the bits which needs to flip are turning into '1'
+so not count the no of bits from the result = count*/
 int main(){
-    int N = 13;
-    int no=N;
+    int start = 10;
+    int end = 11;
+    int ans = start ^ end;
     int count = 0;
-//Normal zindgi:
-    // while(N>0){
-    //     if(N%2==1) count+=1;
-    //     N=N/2; 
-    // }
-//Mentos zindgi:
-    // while(N>0){
-    //     if(N&1) count++;
-    //     N = (N >> 1);
-    // }
-//Mentos+ Zindgi:
-    while(N>0){
-        N = (N & (N-1));
-        count++;
+    for(int i=0; i<=31; i++){
+        if(ans & (1<<i)){
+            count++;
+        }
     }
-    cout<<"No of set bits are: "<<count<<endl;
+    cout <<count<<endl;
     return 0;
 }
