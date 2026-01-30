@@ -2,7 +2,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// // BRUTE: TLE in GfG
 bool canWePlace(vector<int>& arr,int distance,int cows){
     int countCows = 1;
     int last = arr[0];
@@ -17,19 +16,40 @@ bool canWePlace(vector<int>& arr,int distance,int cows){
     else return false;
 }
 
-// // Tc=O(min-max)*O(n), Sc = O(1);
-int aggressiveCowsBrute(vector<int> &arr, int cows) {
+// // BRUTE: TLE in GfG
+// // Tc = nlogn + O(min-max)*O(n), Sc = O(1);
+// int aggressiveCowsBrute(vector<int> &arr, int cows) {
+//     int n = arr.size();
+//     sort(arr.begin(), arr.end());
+//     int minDistance = 1;
+//     int maxDistance = arr[n-1]-arr[0];
+//     int ans = 0;
+        
+//     for(int i=minDistance; i<=maxDistance; i++){
+//         if(canWePlace(arr,i,cows) == true){
+//             ans = i;
+//         }else{
+//             break;
+//         }
+//     }
+//     return ans;
+// }
+
+// Tc = nlogn + O(logbase2N) * O(n)
+int aggressiveCowsOptimal(vector<int>& arr, int cows){
     int n = arr.size();
     sort(arr.begin(), arr.end());
-    int minDistance = 1;
-    int maxDistance = arr[n-1]-arr[0];
+    int low = 0;
+    int high = arr[n-1] - arr[0];
     int ans = 0;
-        
-    for(int i=minDistance; i<=maxDistance; i++){
-        if(canWePlace(arr,i,cows) == true){
-            ans = i;
+
+    while(low<=high){
+        int mid = low+(high-low)/2;
+        if(canWePlace(arr,mid,cows) == true){
+            ans = mid;
+            low = mid+1;
         }else{
-            break;
+            high = mid-1;
         }
     }
     return ans;
@@ -42,9 +62,13 @@ int main(){
     int k1 = 3;
     int k2 = 5;
 
-    cout<<aggressiveCowsBrute(arr1, k1)<<endl;
-    cout<<aggressiveCowsBrute(arr2, k1)<<endl;
-    cout<<aggressiveCowsBrute(arr3, k2)<<endl;
+    // cout<<aggressiveCowsBrute(arr1, k1)<<endl;
+    // cout<<aggressiveCowsBrute(arr2, k1)<<endl;
+    // cout<<aggressiveCowsBrute(arr3, k2)<<endl;
+
+    cout<<aggressiveCowsOptimal(arr1, k1)<<endl;
+    cout<<aggressiveCowsOptimal(arr2, k1)<<endl;
+    cout<<aggressiveCowsOptimal(arr3, k2)<<endl;
 
     return 0;
 }
