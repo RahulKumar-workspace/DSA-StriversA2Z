@@ -92,6 +92,31 @@ Node* deleteKthElement(Node* head, int k){
     return head;
 }
 
+Node* removeElement(Node* head, int el){
+    if(!head) return nullptr;
+    if(head->data == el){
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        return head;
+    }
+
+    int count = 0;
+    Node* temp = head;
+    Node* previous = NULL;
+    while(temp != NULL){
+        count++;
+        if(temp->data == el){
+            previous->next = previous->next->next;
+            delete temp;
+            break;
+        }
+        previous = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+
 int main(){
     vector<int> arr = {1,8,9,3};
     Node* head = convertArry2LL(arr);
@@ -116,9 +141,15 @@ int main(){
     print(head);
     */
 
+    /*
     cout<<endl;
     head = deleteKthElement(head, 3);
     cout<<"LL after removing Kth element:"<<endl;
     print(head);
+    */
 
+    cout<<endl;
+    head = removeElement(head, 8);
+    cout<<"LL after removing Value:"<<endl;
+    print(head);
 }
