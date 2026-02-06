@@ -165,6 +165,25 @@ Node* insertatKthelement(Node* head, int el, int k){
     return head;
 }
 
+Node* insertatBeforeValue(Node* head, int el, int val){
+    if(!head) return NULL;
+    if(head->data == val){ // to insert at head
+        return new Node(el,head);
+    }
+
+    Node* temp = head;
+    while(temp != NULL){
+        if(temp->next->data == val){
+            Node* x = new Node(el);
+            x->next = temp->next;
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
 int main(){
     vector<int> arr = {1,8,9,3};
     Node* head = convertArry2LL(arr);
@@ -217,11 +236,17 @@ int main(){
     print(head);
     */
 
+    /*
     cout<<endl;
-    head = insertatKthelement(head, 10, 3);
+    head = insertatKthelement(head, 100, 3);
     cout<<"LL after inserting kth element: "<<endl;
     print(head);
+    */
 
-    
+    cout<<endl;
+    head = insertatBeforeValue(head, 100, 3);
+    cout<<"LL after inserting el before a val: "<<endl;
+    print(head);
+
     return 0;
 }
