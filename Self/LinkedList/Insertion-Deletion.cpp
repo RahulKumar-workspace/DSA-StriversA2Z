@@ -142,7 +142,28 @@ Node* insertTail(Node* head, int val){
     return head;
 }
 
+Node* insertatKthelement(Node* head, int el, int k){
+    if(!head){
+        if(k == 1) return new Node(el);
+    }
+    if(k == 1){ // to insert at head
+        Node* temp = new Node(el, head); //next is head
+        return temp;
+    }
 
+    int count = 0; Node* temp = head;
+    while(temp != NULL){
+        count++;
+        if(count == k-1){
+            Node* x = new Node(el);
+            x->next = temp->next;
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
 
 int main(){
     vector<int> arr = {1,8,9,3};
@@ -189,9 +210,16 @@ int main(){
     print(head);
     */
 
+    /*
     cout<<endl;
     head = insertTail(head, 100);
     cout<<"LL after inserting tail: "<<endl;
+    print(head);
+    */
+
+    cout<<endl;
+    head = insertatKthelement(head, 10, 3);
+    cout<<"LL after inserting kth element: "<<endl;
     print(head);
 
     return 0;
