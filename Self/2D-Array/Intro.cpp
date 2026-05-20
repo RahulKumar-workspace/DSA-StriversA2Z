@@ -24,7 +24,6 @@ void sumof2Darray(int arr1[][4], int arr2[][4], int row, int col){
     cout<<ans[i][j]<<" ";
 
     cout<<endl;
-    
 }
 
 int main(){
