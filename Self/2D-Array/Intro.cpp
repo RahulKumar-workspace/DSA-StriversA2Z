@@ -11,6 +11,7 @@ void print2Darray(int arr[][4], int row, int col){
     cout<<endl;
 }
 
+
 // For this simple method their size HAS to be the same otherwise it won't work.
 void sumof2Darray(int arr1[][4], int arr2[][4], int row, int col){
     int ans[3][4];
